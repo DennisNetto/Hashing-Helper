@@ -45,6 +45,7 @@ class bcolors:
 
 # The User is prompted to enter the file name, the file hash and what hashing method is to be used.
 contin = 1
+clear()
 print('           //     //         //\\\           /////////    //       //\n           //     //        //  \\\    '
       '     ///           //       //\n           /////////       //====\\\       //////////     ///////////\n      '
       '     //     //      //======\\\            ///      //	  //\n           //     //     //        \\\  '
