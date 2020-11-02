@@ -151,7 +151,7 @@ while contin == 1:
                 dataout, f"{bcolors.ENDC}Hash from User-({bcolors.HEADER}" + testhash)
         loop = 0
         while loop != 1 and loop != 2:
-            loop = int(input(f"{bcolors.ENDC} press 1 to hash another file press 2 to exit \n\n a:"))
+            loop = int(input(f"{bcolors.ENDC} press 1 to hash another file press 2 to exit \n\n :"))
             if loop == 1:
                 contin = 1
                 clear()
