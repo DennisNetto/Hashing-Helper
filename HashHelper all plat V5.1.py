@@ -1,17 +1,14 @@
 import subprocess
-import sys
-import time
 import platform
 import hashlib
-import os
 from os import system, name
-from time import sleep
+
 
 # Variable declaration
-# File input = datain
-# File hash  = testhash
-# Hash method = methodpick
-# File after hash = dataout
+# File input = data-in
+# File hash  = test-hash
+# Hash method = method-pick
+# File after hash = data-out
 # method used to hash = method
 # information and quit or quit = done
 
@@ -85,8 +82,10 @@ while contin == 1:
                 # Sets up a buffer to stop over use of ram capped at 1GB.
                 buffer = 1000000000
                 # Sets up the hashing algorithm.
-                md5 = hashlib.md5()
-                sha256 = hashlib.sha256()
+                if methodpick == 2:
+                    md5 = hashlib.md5()
+                if methodpick == 1:
+                    sha256 = hashlib.sha256()
 
                 # Reads the buffer and updates the hashing method.
                 with open(datain, 'rb') as f:
@@ -95,8 +94,10 @@ while contin == 1:
                         data = f.read(buffer)
                         if not data:
                             break
-                        md5.update(data)
-                        sha256.update(data)
+                        if methodpick == 2:
+                            md5.update(data)
+                        if methodpick == 1:
+                            sha256.update(data)
 
                 clear()
                 # Takes the indicated method and outputs the chosen data.
