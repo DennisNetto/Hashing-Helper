@@ -72,6 +72,7 @@ while contin == 1:
                     clear()
                     # The user is prompted to enter the hash to be tested with the file hash
                     testhash = input("Enter the file hash\n\n:")
+                    testhash = testhash.lower()
 
                 clear()
                 methodpick = 0
