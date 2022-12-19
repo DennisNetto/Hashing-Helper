@@ -77,9 +77,10 @@ while contin == 1:
                 clear()
                 methodpick = 0
                 # Makes the user pick a method.
-                while methodpick != 1 and methodpick != 2:
-                    methodpick = int(input("Please pick a hashing function\n 1 for sha256\n 2 for md5\n\n:"))
-                    clear()
+                if len(testhash) == 32:
+                	methodpick = 2
+                else:
+                	methodpick = 1
                 # Sets up a buffer to stop over use of ram capped at 1GB.
                 buffer = 1000000000
                 # Sets up the hashing algorithm.
