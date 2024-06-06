@@ -18,6 +18,7 @@ operatingsys = platform.system()
 rev = '"'
 
 
+# prints the welcome message
 def logo():
     print('           //     //         //\\\           /////////    //       //\n           //     //        //  \\\    '
       '     ///           //       //\n           /////////       //====\\\       //////////     ///////////\n      '
@@ -29,7 +30,7 @@ def logo():
       '        /////////      ///      //\n')
 
 
-
+# gets the operation the user wants to do.
 def get_switch():
     while True:
 
@@ -45,7 +46,7 @@ def get_switch():
     return(switch)
 
 
-
+# If the operation is getting a file hash the user is asked what option they want
 def get_method():
     while True:
         
@@ -66,6 +67,7 @@ def get_method():
     return(method)
 
 
+# Gets the file location from the user, if its dragged in, the path is modified to work.
 def get_file():
      while True:
 
@@ -82,7 +84,7 @@ def get_file():
         return(datain)
      
 
-
+# Hashes the file acording to the information provided by the user.
 def get_hash(file_path, hash_algorithm, buffer_size=1000000000):
     # Select the hashing algorithm
     if hash_algorithm not in hashlib.algorithms_guaranteed:
@@ -96,7 +98,7 @@ def get_hash(file_path, hash_algorithm, buffer_size=1000000000):
         while chunk := file.read(buffer_size):
             hash_obj.update(chunk)
 
-    # Get the hexadecimal representation of the hash
+    # Gets the hexadecimal representation of the hash, and returns it with the algorithm used.
     file_hash = hash_obj.hexdigest()
 
     return(file_hash, hash_algorithm)
@@ -137,6 +139,7 @@ logo()
 switch = get_switch()
 clear()
 
+# GETTING A HASH FROM A FILE
 if int(switch) == 1:
 
     # Gets the file being used from the user.
@@ -160,6 +163,7 @@ if int(switch) == 1:
     
 
 
+# COMPARING A HASH TO A HASH OBTAINED FROM A FILE
 if int(switch) == 2:
 
     clear()
@@ -169,6 +173,7 @@ if int(switch) == 2:
     clear()
 
 
+    # finds the algorithm to use based on how long the hash is
     if len(testhash) == 32:
         method = "md5"
     elif len(testhash) == 64:
