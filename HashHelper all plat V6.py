@@ -86,6 +86,7 @@ def get_file():
 
 # Hashes the file acording to the information provided by the user.
 def get_hash(file_path, hash_algorithm, buffer_size=1000000000):
+    print('please wait......')
     # Select the hashing algorithm
     if hash_algorithm not in hashlib.algorithms_guaranteed:
         raise ValueError(f"Unsupported hash algorithm: {hash_algorithm}")
@@ -100,7 +101,7 @@ def get_hash(file_path, hash_algorithm, buffer_size=1000000000):
 
     # Gets the hexadecimal representation of the hash, and returns it with the algorithm used.
     file_hash = hash_obj.hexdigest()
-
+    clear()
     return(file_hash, hash_algorithm)
 
 
@@ -189,13 +190,14 @@ if int(switch) == 2:
     # Hashes the file using the length of the hash given.
     filehash = get_hash(datain, method)
 
+    if testhash == filehash[0]:
+        print(f'{bcolors.OKGREEN}-(The hashes match, the file is genuine)-{bcolors.ENDC}')
+    else:
+        print(f'{bcolors.FAIL}!!!(The hashes did not match, the file may be fake. check you file and hash then try again)!!!{bcolors.ENDC}')
 
     print(
     " " + f"Method-({bcolors.WARNING}" + method + f"{bcolors.ENDC}\n" + F" File path-({bcolors.WAR}" +
     datain + "\n" +
     f"{bcolors.ENDC}\n" + " " + f"{bcolors.ENDC}Hash from File-({bcolors.OKBLUE}" 
     + filehash[0] + "\n" + " " + f"{bcolors.ENDC}Hash from User-({bcolors.HEADER}" + testhash)
-
-
-
 
